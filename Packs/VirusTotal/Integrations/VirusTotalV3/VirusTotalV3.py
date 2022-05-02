@@ -13,7 +13,7 @@ from CommonServerPython import *
 INTEGRATION_NAME = "VirusTotal"
 COMMAND_PREFIX = "vt"
 INTEGRATION_ENTRY_CONTEXT = "VirusTotal"
-
+asdf
 INDICATOR_TYPE = {
     'ip': FeedIndicatorType.IP,
     'ip_address': FeedIndicatorType.IP,
