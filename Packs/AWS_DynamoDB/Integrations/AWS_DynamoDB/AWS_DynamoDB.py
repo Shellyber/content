@@ -62,7 +62,7 @@ def parse_tag_field(tags_str):
         if tags_str is not None:
             for f in tags_str.split(';'):
                 match = regex.match(f)
-                if match is None:
+                if match is None:asdf
                     demisto.log('could not parse field: %s' % (f,))
                     continue
 
