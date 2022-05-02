@@ -1,6 +1,6 @@
 name: Sync contributor base branch on change
 on:
-  pull_request:
+  pull_request_target:
     types:
       - edited
       - synchronize
