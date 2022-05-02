@@ -21,7 +21,7 @@ INDICATOR_TYPE = {
     'file': FeedIndicatorType.File,
     'url': FeedIndicatorType.URL
 }
-
+asdf
 # THIS IS A COMMENT
 """ RELATIONSHIP TYPE"""
 RELATIONSHIP_TYPE = {
