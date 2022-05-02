@@ -18,7 +18,7 @@ INDICATOR_TYPE = {
     'ip': FeedIndicatorType.IP,
     'ip_address': FeedIndicatorType.IP,
     'domain': FeedIndicatorType.Domain,
-    'file': FeedIndicatorType.File,
+    'file': FeedIndicatorType.File,asdfa
     'url': FeedIndicatorType.URL
 }
 asdf
