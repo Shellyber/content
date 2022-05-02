@@ -7,6 +7,14 @@ on:
       - 'contrib/**'
 
 jobs:
+  output_info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print out event stufffff
+        run: |
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
   sync_contributor_base_branch:
     runs-on: ubuntu-latest
     if: github.repository == 'Shellyber/content' && github.event.pull_request.head.repo.fork == true && contains(github.head_ref, 'xsoar-bot-contrib-ContributionTestPack') == false
