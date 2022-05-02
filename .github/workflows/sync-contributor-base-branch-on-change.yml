@@ -4,8 +4,8 @@ on:
     types:
       - edited
       - synchronize
-#     branches:
-#       - 'contrib/**'
+    branches:
+      - 'contrib/**'
 
 jobs:
   output_info:
