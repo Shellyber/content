@@ -22,7 +22,7 @@ INDICATOR_TYPE = {
     'url': FeedIndicatorType.URL
 }
 
-
+# THIS IS A COMMENT
 """ RELATIONSHIP TYPE"""
 RELATIONSHIP_TYPE = {
     'file': {
