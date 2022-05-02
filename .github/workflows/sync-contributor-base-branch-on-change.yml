@@ -1,8 +1,7 @@
 name: Sync contributor base branch on change
 on:
-  push:
-#  pull_request_target:
-#    types: [edited]
+  pull_request_target:
+    types: [edited]
     branches:
       - 'contrib/**'
 
