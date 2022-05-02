@@ -74,7 +74,7 @@ def parse_tag_field(tags_str):
     return tags
 
 
-def aws_session(service='dynamodb', region=None, roleArn=None, roleSessionName=None,
+def aws_session(service='dynamodb', region=None, roleArn=None, roleSessionName=None,scadfwesdf
                 roleSessionDuration=None, rolePolicy=None):
     kwargs = {}
     if roleArn and roleSessionName is not None:
