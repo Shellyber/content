@@ -1,4 +1,4 @@
-name: Sync contributor base branch on push
+name: Sync contributor base branch on change
 on:
   pull_request_target:
     types: [edited]
@@ -8,7 +8,7 @@ on:
 jobs:
   sync_contributor_base_branch:
     runs-on: ubuntu-latest
-    if: github.repository == 'shellybear/content' && github.event.action == 'edited' && github.event.pull_request.head.repo.fork == true && contains(github.head_ref, 'xsoar-bot-contrib-ContributionTestPack') == false
+    if: github.repository == 'Shellyber/content' && github.event.action == 'edited' && github.event.pull_request.head.repo.fork == true && contains(github.head_ref, 'xsoar-bot-contrib-ContributionTestPack') == false
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -27,5 +27,5 @@ jobs:
           echo "Updating contribution base branch (contrib/*)"
           cd Utils/github_workflow_scripts
           pipenv sync
-          pipenv run ./sync_contrib_base.py ${{ github.event.pull_request.base.ref }}
+          pipenv run ./sync_contrib_base.py --branch_name ${{ github.event.pull_request.base.ref }}
           echo "Finished updating base branch"
