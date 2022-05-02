@@ -35,6 +35,7 @@ jobs:
           CONTENTBOT_GH_ADMIN_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo "Updating contribution base branch (contrib/*)"
+          echo "This is the brancf base ref: ${{ github.event.pull_request.base.ref }})
           cd Utils/github_workflow_scripts
           pipenv sync
           pipenv run ./sync_contrib_base.py --branch_name ${{ github.event.pull_request.base.ref }}

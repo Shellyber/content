@@ -64,11 +64,12 @@ def update_branch(content_repo, branch_name, master_sha):
 
 def main():
     ref_branch = arguments_handler()
+    print(f'This is the ref Branch {ref_branch}')
     debug_mode = len(sys.argv) >= 2 and 'debug' in sys.argv[1].casefold()
     if debug_mode:
         enable_console_debug_logging()
     gh = Github(os.getenv('CONTENTBOT_GH_ADMIN_TOKEN'), verify=False)
-    organization = 'demisto'
+    organization = 'Shellyber'
     repo = 'content'
     content_repo = gh.get_repo(f'{organization}/{repo}')
 
