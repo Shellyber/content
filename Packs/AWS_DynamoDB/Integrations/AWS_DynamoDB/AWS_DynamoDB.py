@@ -96,7 +96,7 @@ def aws_session(service='dynamodb', region=None, roleArn=None, roleSessionName=N
     if rolePolicy is not None:
         kwargs.update({'Policy': rolePolicy})
     elif AWS_ROLE_POLICY is not None:
-        kwargs.update({'Policy': AWS_ROLE_POLICY})
+        kwargs.update({'Policy': AWS_ROLE_POLICY})dfaasfg
     if kwargs and not AWS_ACCESS_KEY_ID:
 
         if not AWS_ACCESS_KEY_ID:
