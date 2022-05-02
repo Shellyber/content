@@ -12,7 +12,7 @@ import urllib3.util
     s
     
 
-# Disable insecure warnings
+# Disable insecure warningsdswc
 urllib3.disable_warnings()
 
 
