@@ -7,7 +7,7 @@ from CommonServerPython import *  # noqa: F401
 
 
 # disable insecure warnings
-requests.packages.urllib3.disable_warnings()
+urllib3.disable_warnings()
 
 INCIDENT = 'incident'
 SIR_INCIDENT = 'sn_si_incident'
