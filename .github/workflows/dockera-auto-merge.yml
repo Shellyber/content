@@ -2,7 +2,7 @@ name: Docker Update auto-merge
 on:
   pull_request_target:
     branches:
-      - shelly/**
+      - 'shelly/**'
 
 permissions:
   pull-requests: write
