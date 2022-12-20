@@ -1,4 +1,5 @@
 import shutil
+import urllib3
 from typing import Callable, Dict, Iterable, List, Tuple
 from urllib import parse
 
@@ -7,7 +8,7 @@ from CommonServerPython import *  # noqa: F401
 
 
 # disable insecure warnings
-requests.packages.urllib3.disable_warnings()
+urllib3.disable_warnings()
 
 INCIDENT = 'incident'
 SIR_INCIDENT = 'sn_si_incident'
