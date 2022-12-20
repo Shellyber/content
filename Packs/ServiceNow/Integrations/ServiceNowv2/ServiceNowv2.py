@@ -5,9 +5,9 @@ from urllib import parse
 import demistomock as demisto  # noqa: F401
 from CommonServerPython import *  # noqa: F401
 
-
+import urllib3
 # disable insecure warnings
-requests.packages.urllib3.disable_warnings()
+urllib3.disable_warnings()
 
 INCIDENT = 'incident'
 SIR_INCIDENT = 'sn_si_incident'
