@@ -1,0 +1,31 @@
+name: Docker Update auto-merge
+on:
+  pull_request_target:
+    branches:
+      - shelly/**
+
+permissions:
+  pull-requests: write
+  contents: write
+
+jobs:
+  output_info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print out event stufffff
+        run: |
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+  approve_and_merge:
+    runs-on: ubuntu-latest
+    if: ${{github.repository == 'Shellyber/content' && contains(github.event.pull_request.labels.*.name, 'docker')}}
+    steps:
+      - name: Approve and auto-merge for docker update PRs
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          CONTENTBOT_GH_ADMIN_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Approving and merging"
+          gh pr review --approve "$PR_URL"
+          //gh pr merge --auto --squash "$PR_URL"
