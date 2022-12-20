@@ -1,12 +1,10 @@
 name: Docker Update auto-merge
 on:
   pull_request_target:
+    types:
+      - opened
     branches:
       - 'shelly/**'
-
-permissions:
-  pull-requests: write
-  contents: write
 
 jobs:
   output_info:
