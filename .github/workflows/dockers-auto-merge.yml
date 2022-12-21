@@ -13,3 +13,9 @@ jobs:
           echo "$GITHUB_CONTEXT"
         env:
           GITHUB_CONTEXT: ${{ toJSON(github) }}
+      - name: Approve and auto-merge for docker update PRs
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+        run: |
+          echo "Approving and merging"
+          gh pr review --approve "$PR_URL"
