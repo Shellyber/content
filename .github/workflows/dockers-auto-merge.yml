@@ -10,19 +10,18 @@ permissions:
 
 jobs:
   output_info:
-    run_if:
-      if: github.repository == 'Shellyber/content'
-      runs-on: ubuntu-latest
-      steps:
-        - name: Print out event stufffff
-          run: |
-            echo "$GITHUB_CONTEXT"
-          env:
-            GITHUB_CONTEXT: ${{ toJSON(github) }}
-        - name: Approve and auto-merge for docker update PRs
-          env:
-            PR_URL: ${{github.event.pull_request.html_url}}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          run: |
-            echo "Approving and merging"
-            gh pr review --approve "$PR_URL"
+    if: github.repository == 'Shellyber/content'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print out event stufffff
+        run: |
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+      - name: Approve and auto-merge for docker update PRs
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "Approving and merging"
+          gh pr review --approve "$PR_URL"
