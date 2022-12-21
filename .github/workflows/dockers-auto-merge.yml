@@ -4,10 +4,6 @@ on:
     types:
       - opened
 
-permissions:
-  pull-requests: write
-  contents: write
-
 jobs:
   auto_approve_and_merge:
     run_if:
