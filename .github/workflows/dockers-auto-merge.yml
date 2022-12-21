@@ -1,17 +1,15 @@
 name: Docker Update Auto Merge
 on:
-  pull_request:
-    types:
-      - opened
+  push:
+    branches:
+      - 'demisto/**'
 
 jobs:
   output_info:
-    run_if:
-      if: startsWith(github.head_ref, 'demisto/')
-      runs-on: ubuntu-latest
-      steps:
-        - name: Print out event stufffff
-          run: |
-            echo "$GITHUB_CONTEXT"
-          env:
-            GITHUB_CONTEXT: ${{ toJSON(github) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print out event stufffff
+        run: |
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
