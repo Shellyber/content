@@ -1,10 +1,8 @@
 name: Docker Update Auto Merge
 on:
   pull_request:
-    types:
-      - opened
     branches:
-      - 'shelly/**'
+      - 'demisto/**'
 
 jobs:
   output_info:
