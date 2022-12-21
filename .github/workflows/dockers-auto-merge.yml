@@ -1,8 +1,8 @@
 name: Docker Update Auto Merge
 on:
-  push:
-    branches:
-      - 'demisto/**'
+  pull_request:
+    types:
+      - opened
 
 permissions:
   contents: write
@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   output_info:
-    if: github.repository == 'Shellyber/content'
+    if: github.repository == 'Shellyber/content' && startsWith(github.head_ref, 'demisto/')
     runs-on: ubuntu-latest
     steps:
       - name: Print out event stufffff
