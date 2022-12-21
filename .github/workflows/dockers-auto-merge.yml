@@ -6,18 +6,16 @@ on:
 
 jobs:
   output_info:
-    run_if:
-      if: startsWith(github.head_ref, 'demisto/')
-      runs-on: ubuntu-latest
-      steps:
-        - name: Print out event stufffff
-          run: |
-            echo "$GITHUB_CONTEXT"
-          env:
-            GITHUB_CONTEXT: ${{ toJSON(github) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print out event stufffff
+        run: |
+          echo "$GITHUB_CONTEXT"
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
   auto_approve_and_merge:
     run_if:
-      if: ${{startsWith(github.head_ref, 'demisto/') && github.repository == 'Shellyber/content' $$ contains(github.event.pull_request.labels.*.name, 'docker')}}
+      if: startsWith(github.head_ref, 'demisto/') && github.repository == 'Shellyber/content' $$ contains(github.event.pull_request.labels.*.name, 'docker')
       runs-on: ubuntu-latest
       steps:
         - name: Approve and auto-merge for docker update PRs
