@@ -1,15 +1,28 @@
 name: Docker Update Auto Merge
 on:
-  push:
-    branches:
-      - 'demisto/**'
+  pull_request:
+    types:
+      - opened
 
 jobs:
   output_info:
+    run_if:
+      if: startsWith(github.head_ref, 'demisto/')
+      runs-on: ubuntu-latest
+      steps:
+        - name: Print out event stufffff
+          run: |
+            echo "$GITHUB_CONTEXT"
+          env:
+            GITHUB_CONTEXT: ${{ toJSON(github) }}
+
+  auto_approve_and_merge:
     runs-on: ubuntu-latest
+    if: ${{startsWith(github.head_ref, 'demisto/') && github.repository == 'Shellyber/content' $$ contains(github.event.pull_request.labels.*.name, 'docker')}}
     steps:
-      - name: Print out event stufffff
-        run: |
-          echo "$GITHUB_CONTEXT"
+      - name: Approve and auto-merge for docker update PRs
         env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
+          PR_URL: ${{github.event.pull_request.html_url}}
+        run: |
+          echo "Approving and merging"
+          gh pr review --approve "$PR_URL"
