@@ -1,6 +1,6 @@
 name: Docker Update Auto Merge
 on:
-  pull_request:
+  push:
     branches:
       - 'demisto/**'
 
