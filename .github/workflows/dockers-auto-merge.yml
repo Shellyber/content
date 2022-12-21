@@ -5,9 +5,9 @@ on:
       - opened
 
 jobs:
-  auto_approve_and_merge:
+  output_info:
     run_if:
-      if: startsWith(github.head_ref, 'demisto/') && github.repository == 'Shellyber/content' $$ contains(github.event.pull_request.labels.*.name, 'docker')
+      if: startsWith(github.head_ref, 'demisto/')
       runs-on: ubuntu-latest
       steps:
         - name: Print out event stufffff
