@@ -10,6 +10,8 @@ permissions:
 
 jobs:
   output_info:
+    run_if:
+    if: github.repository == 'Shellyber/content'
     runs-on: ubuntu-latest
     steps:
       - name: Print out event stufffff
