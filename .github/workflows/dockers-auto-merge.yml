@@ -1,23 +1,21 @@
 name: Docker Update Auto Merge
 on:
   pull_request:
-    types:
-      - opened
+    types: [opened, edited]
+  schedule:
+    - cron: '0 11 * * *'
+    - cron: '35 13 * * *'
+
 
 permissions:
-  contents: write
   pull-requests: write
+  contents: write
 
 jobs:
-  output_info:
-    if: github.repository == 'Shellyber/content' && startsWith(github.head_ref, 'demisto/')
+  auto_approve_and_merge:
     runs-on: ubuntu-latest
+    if: startsWith(github.head_ref, 'demisto/') && github.repository == 'Shellyber/content' && contains(github.event.pull_request.labels.*.name, 'docker')
     steps:
-      - name: Print out event stufffff
-        run: |
-          echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJSON(github) }}
       - name: Approve and auto-merge for docker update PRs
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
@@ -25,3 +23,4 @@ jobs:
         run: |
           echo "Approving and merging"
           gh pr review --approve "$PR_URL"
+          gh pr merge --squash "$PR_URL"
